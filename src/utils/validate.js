@@ -9,8 +9,8 @@ const checkValidData = (email,password)=>{
     }
     return null;
 }
-const checkValidDataSignUp = (userName,email,password)=>{
-    const isUserValid = /^[A-Za-z][A-Za-z0-9_]{7,29}$/.test(userName)
+const checkValidDataSignUp = (displayName,email,password)=>{
+    const isUserValid = /^[A-Za-z][A-Za-z0-9_]{7,29}$/.test(displayName)
     checkValidData(email,password)
     if (!isUserValid) return 'Enter valid User name is not valid ';
     
