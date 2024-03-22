@@ -25,9 +25,13 @@
 - Create movie slice
 - Update store with movies
 - Planning for Main container & Secondary container
-- Fetch data for Trailer Video
+- Fetch data from TMDB for Trailer Video
 - Update Store with Trailer Video Data
 - Embedded the Youtube video and make it autoplay and mute
+- Build Movie List
+- Build Movie card
+- TmDB image CDN url
+- usePopularMovies, useTopRated, useUpcoming custom hooks
 
 
 ## Feature
@@ -43,7 +47,7 @@
         - MainContainer
             1. VideoBackground
             2. VideoTitle
-        - SecondaryContainer
+        - SecondaryContainer ( movieList - Popular, Now Playing, Trending, Horror)
             1. MovieList * n
                 - Cards * n   
 ## firebase 
