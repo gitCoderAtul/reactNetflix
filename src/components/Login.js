@@ -60,7 +60,7 @@ function Login() {
                     photoURL:photoURL,
                   })
                 );
-                navigate("/browse");
+                // navigate("/browse");
               })
               .catch((error) => {
                 // An error occurred
@@ -84,7 +84,7 @@ function Login() {
           .then((userCredential) => {
             // Signed in
             const user = userCredential.user;
-            navigate("/browse");
+            // navigate("/browse");
             console.log(user);
           })
           .catch((error) => {

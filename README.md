@@ -14,6 +14,21 @@
 - Implement sign in user api
 - Create Redux store with user slice
 - update profile
+- BugFix: Sign up user displayName and profile picture update
+- BugFix: if the user is not logged in Redirect/ nrowse to Login Page and vice-versa
+- Unsubscribe to the onAuthStateChanged callback
+- Add hardcodede values to constants file
+- Register TMDB API & Create an app & get access token
+- Get Data from TMDB now playing movies list API
+- early return topic (important)
+- Custom Hook for Now Playing Movies
+- Create movie slice
+- Update store with movies
+- Planning for Main container & Secondary container
+- Fetch data for Trailer Video
+- Update Store with Trailer Video Data
+- Embedded the Youtube video and make it autoplay and mute
+
 
 ## Feature
 - Login/Sign Up
@@ -24,7 +39,13 @@
     - Main Movie
         - Tailer in Background
         - Title & Description
-
+    - Main Movie
+        - MainContainer
+            1. VideoBackground
+            2. VideoTitle
+        - SecondaryContainer
+            1. MovieList * n
+                - Cards * n   
 ## firebase 
 1. npm install firebase 
 2. npm install -g firebase-tools

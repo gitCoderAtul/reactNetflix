@@ -6,9 +6,10 @@ import {
   createBrowserRouter,
   useNavigate,
 } from "react-router-dom";
+
+import { useDispatch } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../Redux/reducer/userSlice";
 
 function Body() {
@@ -25,6 +26,8 @@ function Body() {
     },
   ]);
 
+  /* // onAuthStateChanged move to common child component and we will remove navigate from other component. and commonly apply to onAuthStateChanged
+  
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -46,7 +49,7 @@ function Body() {
       }
     });
   }, []);
-
+*/
   return (
     <div>
       <RouterProvider router={appRouter}></RouterProvider>

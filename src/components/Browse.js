@@ -1,29 +1,44 @@
+import {useEffect} from 'react'
+import Header from './Header';
+import useNowPlayingMovies from '../hooks/useNowPlayingMovies';
+import MainContainer from './MainContainer';
+import SecondaryContainer from './SecondaryContainer';
+/*
 import { signOut } from 'firebase/auth';
-import React from 'react'
 import { auth } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
-import Header from './Header';
+import { API_OPTIONS } from "../utils/constants";
+import { useDispatch } from 'react-redux';
+import { addNowPlayingMovies } from '../Redux/reducer/movieSlice';
+*/
 
 function Browse() {
+ /*
   const navigate = useNavigate();
   const handleSignOut = ()=>{ 
     signOut(auth).then(() => {
       // Sign-out successful.
-      navigate('/');
+      // navigate('/');
     }).catch((error) => {
       // An error happened.
-      navigate('/error');
+      // navigate('/error');
     });
 
   }
+  */
+ 
+  //create custom hook and call it in the browse component
+  useNowPlayingMovies()
+
   return (
-    <div>
+    <div className='w-full overflow-x-hidden'>
       <Header></Header>
-     <div className='pt-[74px]'>
-       browse
+     <div className='w-full overflow-x-hidden'>
+       <MainContainer></MainContainer>
+       <SecondaryContainer></SecondaryContainer>
      </div>
     </div>
-    
+
    /* <div className='bg-black flex justify-between items-center px-16'>
       <div>
       <img className='w-44'
@@ -38,4 +53,4 @@ function Browse() {
   )
 }
 
-export default Browse
+export default Browse;
