@@ -1,11 +1,13 @@
-import {useEffect} from 'react'
-import Header from './Header';
-import useNowPlayingMovies from '../hooks/useNowPlayingMovies';
-import MainContainer from './MainContainer';
-import SecondaryContainer from './SecondaryContainer';
-import usePopularMovies from '../hooks/usePopularMovies';
-import useTopRatedMovies from '../hooks/useTopRatedMovies';
-import useUpcomingMovies from '../hooks/useUpcomingMovies';
+import { useEffect } from "react";
+import Header from "./Header";
+import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
+import MainContainer from "./MainContainer";
+import SecondaryContainer from "./SecondaryContainer";
+import usePopularMovies from "../hooks/usePopularMovies";
+import useTopRatedMovies from "../hooks/useTopRatedMovies";
+import useUpcomingMovies from "../hooks/useUpcomingMovies";
+import GptSearch from "./GptSearch";
+import { useSelector } from "react-redux";
 /*
 import { signOut } from 'firebase/auth';
 import { auth } from '../utils/firebase';
@@ -16,7 +18,8 @@ import { addNowPlayingMovies } from '../Redux/reducer/movieSlice';
 */
 
 function Browse() {
- /*
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
+  /*
   const navigate = useNavigate();
   const handleSignOut = ()=>{ 
     signOut(auth).then(() => {
@@ -29,7 +32,7 @@ function Browse() {
 
   }
   */
- 
+
   //create custom hook and call it in the browse component
   useNowPlayingMovies();
   usePopularMovies();
@@ -37,15 +40,19 @@ function Browse() {
   useUpcomingMovies();
 
   return (
-    <div className='w-full overflow-x-hidden'>
+    <div className="w-full overflow-x-hidden">
       <Header></Header>
-     <div className='w-full overflow-x-hidden'>
-       <MainContainer></MainContainer>
-       <SecondaryContainer></SecondaryContainer>
-     </div>
+      {showGptSearch ? (
+        <GptSearch></GptSearch>
+      ) : (
+        <div className="w-full overflow-x-hidden">
+          <MainContainer></MainContainer>
+          <SecondaryContainer></SecondaryContainer>
+        </div>
+      )}
     </div>
 
-   /* <div className='bg-black flex justify-between items-center px-16'>
+    /* <div className='bg-black flex justify-between items-center px-16'>
       <div>
       <img className='w-44'
       src='https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png'
@@ -56,7 +63,7 @@ function Browse() {
       </div>
     </div>
     */
-  )
+  );
 }
 
 export default Browse;

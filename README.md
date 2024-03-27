@@ -32,7 +32,8 @@
 - Build Movie card
 - TmDB image CDN url
 - usePopularMovies, useTopRated, useUpcoming custom hooks
-
+--
+- Gpt search Feature
 
 ## Feature
 - Login/Sign Up
