@@ -10,6 +10,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Redux/reducer/userSlice";
+import { BG_URL } from "../utils/constants";
 
 function Login() {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -47,7 +48,8 @@ function Login() {
             //  navigate('/browse');
             updateProfile(user, {
               displayName: userName.current.value,
-              photoURL: "https://media.licdn.com/dms/image/C4D03AQFMoZ7OTW_qOw/profile-displayphoto-shrink_100_100/0/1661350686936?e=1716422400&v=beta&t=1FM9wzj7dDOPs6lBc6RF7d8LQMBO9mEkiVZbNacVXz4",
+              photoURL:
+                "https://media.licdn.com/dms/image/C4D03AQFMoZ7OTW_qOw/profile-displayphoto-shrink_100_100/0/1661350686936?e=1716422400&v=beta&t=1FM9wzj7dDOPs6lBc6RF7d8LQMBO9mEkiVZbNacVXz4",
             })
               .then(() => {
                 // Profile updated!
@@ -56,8 +58,8 @@ function Login() {
                   addUser({
                     uid: uid,
                     email: email,
-                    displayName:displayName,
-                    photoURL:photoURL,
+                    displayName: displayName,
+                    photoURL: photoURL,
                   })
                 );
                 // navigate("/browse");
@@ -151,11 +153,7 @@ function Login() {
       <Header></Header>
       <div className="absolute bg-gradient-to-b from-black opacity-80 w-full h-screen z-[1]"></div>
       <div>
-        <img
-          className="w-full z-[0] absolute"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e0-ecd7979cc88b/a3873901-5b7c-46eb-b9fa-12fea5197bd3/IN-en-20240311-popsignuptwoweeks-perspective_alpha_website_small.jpg"
-          alt="background"
-        />
+        <img className="w-full z-[0] absolute" src={BG_URL} alt="background" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
