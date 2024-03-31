@@ -7,6 +7,8 @@ const useMovieTrailer = (movieId) => {
   //create custom hook and move this logic to that hook so it will promote seperation and moduler, readable , clearable and it will helps us testing
 
   const dispatch = useDispatch();
+const trailerVideo = useSelector(store=>store.movies.trailerVideo)
+
 //   console.log("----trailer video", trailerVideo);
      const getMovieVideos = async () => {
     // "https://api.themoviedb.org/3/movie/1011985/videos?language=en-US",
@@ -32,7 +34,7 @@ const useMovieTrailer = (movieId) => {
   };
 
   useEffect(() => {
-    getMovieVideos();
+    !trailerVideo && getMovieVideos();
   }, []);
 };
 

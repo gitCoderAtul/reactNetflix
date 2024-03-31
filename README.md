@@ -36,6 +36,8 @@
 - Gpt search Feature
 - GPT Search bar
 - Multi-language features in our app 
+- Integrate GPT APIs
+- memorization 
 
 ## Feature
 - Login/Sign Up

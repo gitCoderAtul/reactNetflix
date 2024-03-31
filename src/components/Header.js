@@ -13,7 +13,7 @@ function Header() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
-  const showGptSearch = useSelector((store)=>store.gpt.showGptSearch)
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
 
   // commonly apply sign in and sign out
   useEffect(() => {
@@ -59,39 +59,40 @@ function Header() {
     //toggle gpt search
     dispatch(toggleGptSearchView());
   };
-  const handleLanguageChange = (e)=>{
-   // console.log(e.target.value); 
- dispatch(changeLanguage(e.target.value)) 
-  }
+  const handleLanguageChange = (e) => {
+    // console.log(e.target.value);
+    dispatch(changeLanguage(e.target.value));
+  };
 
   return (
     <div className="bg-gradient-to-b from-black w-full flex justify-between items-center px-16 absolute z-[2]">
       <img className="w-44" src={LOGO_URL} alt="logo"></img>
       {user && (
         <div className="flex items-center">
-          <select
-            className="px-3 py-1 bg-gray-800 bg-opacity-65 text-white rounded-sm"
-            onChange={handleLanguageChange}
-          >
-            {SUPPORTED_LANGUAGE.map((lang) => (
-              <option value={lang.identifier} key={lang.identifier}>
-                {" "}
-                {lang.name}{" "}
-              </option>
-            ))}
-            {/* <option value="en"> English </option>
-              <option value="hindi"> Hindi </option>
-              <option value="mararthi"> Marathi </option>
-              <option value="gujarati"> Gujarati </option>
-              <option value="russian"> Russian </option>               */}
-          </select>
+          {showGptSearch && (
+            <select
+              className="px-3 py-1 bg-gray-800 bg-opacity-65 text-white rounded-sm"
+              onChange={handleLanguageChange}
+            >
+              {SUPPORTED_LANGUAGE.map((lang) => (
+                <option value={lang.identifier} key={lang.identifier}>
+                  {" "}
+                  {lang.name}{" "}
+                </option>
+              ))}
+              {/* <option value="en"> English </option>
+     <option value="hindi"> Hindi </option>
+     <option value="mararthi"> Marathi </option>
+     <option value="gujarati"> Gujarati </option>
+     <option value="russian"> Russian </option>               */}
+            </select>
+          )}
+
           <button
             className="bg-purple-900 bg-opacity-65 text-white px-3 py-1 mx-4 rounded-sm"
             onClick={handleGptSearchClick}
           >
-           {
-            showGptSearch ? 'Homepage' :'GPT Search'
-           }  
+            {showGptSearch ? "Home" : "GPT Search"}
           </button>
           <span className="text-white font-semibold">{user.displayName} </span>
           <img

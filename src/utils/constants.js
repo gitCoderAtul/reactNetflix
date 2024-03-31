@@ -15,4 +15,5 @@ const API_OPTIONS = {
   {identifier:'russian', name:'Russian'}
 ]
 
-export {LOGO_URL, IMG_TMDB_URL, API_OPTIONS, BG_URL, SUPPORTED_LANGUAGE}
+const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY;
+export {LOGO_URL, IMG_TMDB_URL, API_OPTIONS, BG_URL, SUPPORTED_LANGUAGE, OPENAI_KEY}
